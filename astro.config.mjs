@@ -19,7 +19,7 @@ export default defineConfig(
     ],
   },
   {
-    // set base path for all assets
+    site: "https://ma-asad.github.io",
     base: "/",
   }
 );
