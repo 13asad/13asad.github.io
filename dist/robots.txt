@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://ma-asad/sitemap-index.xml
