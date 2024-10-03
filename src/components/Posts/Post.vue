@@ -1,4 +1,22 @@
 <script setup>
+
+const posts = [
+  {
+    date: '2023-10-01',
+    title: 'Understanding Vue 3 Composition API',
+    coverImage: 'https://via.placeholder.com/150'
+  },
+  {
+    date: '2023-09-25',
+    title: 'A Guide to Vue Router',
+    coverImage: 'https://via.placeholder.com/150'
+  },
+  {
+    date: '2023-09-15',
+    title: 'State Management with Vuex',
+    coverImage: 'https://via.placeholder.com/150'
+  }
+]
 </script>
 
 <template>
