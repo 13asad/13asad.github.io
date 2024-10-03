@@ -2,3 +2,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  #app {
+    @apply container flex-grow py-4 min-h-screen flex flex-col px-16;
+  }
+
+  main {
+    @apply container flex-grow py-8;
+  }
+}
