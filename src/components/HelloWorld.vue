@@ -4,7 +4,7 @@ import SocialLinks from '@/components/SocialLinks.vue'
 
 <template>
   <section class="mb-12 bg-blue-50 p-4 rounded-lg">
-    <h2 class="text-3xl font-bold mb-4">Hi!</h2>
+    <h2 class="text-3xl font-bold mb-4">Hi, I'm Asad! ^-^</h2>
     <p class="mb-4">
       I'm <b>Mohammad Asad Atterkhan</b>. I'm currently a final year Computer Science & Systems Engineering
       (CSSE) student and also an IT Engineer. I have a passion for solving problems and tweaking
