@@ -5,10 +5,10 @@
 
 @layer base {
   #app {
-    @apply container flex-grow py-4 min-h-screen flex flex-col px-16;
+    @apply container flex-grow py-4 min-h-screen flex flex-col px-6 sm:px-8 md:px-16;
   }
 
   main {
-    @apply container flex-grow py-8;
+    @apply container flex-grow py-8 px-6 sm:px-8 md:px-16;
   }
 }
