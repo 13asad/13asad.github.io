@@ -10,7 +10,6 @@ const currentYear = new Date().getFullYear();
       <p class="mb-2 md:mb-0 text-center md:text-left">
         &copy; {{ currentYear }} Mohammad Asad Atterkhan
       </p>
-
       <div class="flex justify-center md:justify-end mt-2 md:mt-0">
         <SocialLinks />
       </div>
