@@ -10,5 +10,7 @@
 
   main {
     @apply container flex-grow py-8 px-6 sm:px-8 md:px-16;
+  
   }
+  
 }
