@@ -12,9 +12,11 @@ import SocialLinks from '@/components/SocialLinks.vue'
       Passionate about solving problems and optimizing systems. Enthusiast of technology and innovation.<br>
       Oh and I like Cats! 🐱
     </p>
-    <p class="mb-4">
-      
-    </p>
-    <SocialLinks />
+    <div class="flex items-center space-x-4">
+      <SocialLinks />
+      <a href="/resume.pdf" target="_blank" class="border border-gray-600 text-gray-600 px-2 py-1 rounded hover:border-blue-900 hover:bg-blue-900 hover:text-white transition">
+        Resume
+      </a>
+    </div>
   </section>
 </template>
