@@ -1,3 +1,4 @@
+<!-- BlogView.vue -->
 <script setup>
 import PostCard from '@/components/Posts/PostCard.vue';
 import { posts } from '@/data/postData';
