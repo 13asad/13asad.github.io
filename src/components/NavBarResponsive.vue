@@ -3,20 +3,32 @@ import { RouterLink } from 'vue-router';
 import { ref, onMounted, onUnmounted } from 'vue';
 
 const menuOpen = ref(false);
+const isFixed = ref(false);
 const isVisible = ref(true);
-let lastScrollY = window.scrollY;
+let lastScrollY = 0;
 
 function toggleMenu() {
   menuOpen.value = !menuOpen.value;
 }
 
 const handleScroll = () => {
-  if (window.scrollY < lastScrollY) {
-    isVisible.value = true;
+  const currentScrollY = window.scrollY;
+  
+  // Determine if header should be fixed
+  isFixed.value = currentScrollY > 50;
+
+  // Determine visibility based on scroll direction, but only when fixed
+  if (isFixed.value) {
+    if (currentScrollY < lastScrollY) {
+      isVisible.value = true;
+    } else {
+      isVisible.value = false;
+    }
   } else {
-    isVisible.value = false;
+    isVisible.value = true;
   }
-  lastScrollY = window.scrollY;
+  
+  lastScrollY = currentScrollY;
 };
 
 onMounted(() => {
@@ -29,11 +41,25 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <header :class="['fixed top-0 left-0 w-full bg-white shadow-md z-50 transition-transform duration-300', { 'transform -translate-y-full': !isVisible }]">
-    <div class="p-4 flex flex-col items-center">
+  <header 
+    :class="[
+      'w-full bg-white z-50 transition-all duration-300 px-6 sm:px-8 md:px-16',
+      { 'fixed top-0 left-0 shadow-md': isFixed },
+      { 'relative': !isFixed },
+      { 'transform -translate-y-full': !isVisible && isFixed },
+      { 'py-2': isFixed, 'py-4': !isFixed }
+    ]"
+  >
+    <div class="flex flex-col items-center">
       <div class="flex flex-col items-center space-y-2">
-        <img src="@/assets/img/PixMeAlone.gif" alt="Pixel Me" class="h-15 w-15" />
-        <h1 class="text-xl font-bold">Mohammad Asad</h1>
+        <img 
+          src="@/assets/img/PixMeAlone.gif" 
+          alt="Pixel Me" 
+          :class="{ 'h-10 w-10': isFixed, 'h-15 w-15': !isFixed }"
+        />
+        <h1 :class="{ 'text-lg font-semibold': isFixed, 'text-xl font-bold': !isFixed }">
+          Mohammad Asad
+        </h1>
       </div>
       
       <!-- Centered Hamburger Icon -->
@@ -42,8 +68,15 @@ onUnmounted(() => {
       </button>
 
       <!-- Navigation -->
-      <nav :class="{ hidden: !menuOpen, block: menuOpen }" class="w-full mt-4">
-        <ul class="flex flex-col items-center space-y-2">
+      <nav 
+        :class="{ 
+          'hidden': !menuOpen, 
+          'block': menuOpen,
+          'md:block': true // Always show on larger screens
+        }" 
+        class="w-full mt-4 md:mt-2"
+      >
+        <ul class="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-4">
           <li><RouterLink to="/" class="hover:underline hover:text-red-700">Home</RouterLink></li>
           <li><RouterLink to="/about" class="hover:underline hover:text-red-700">About</RouterLink></li>
           <li><RouterLink to="/blog" class="hover:underline hover:text-red-700">Blog</RouterLink></li>
@@ -52,4 +85,7 @@ onUnmounted(() => {
       </nav>
     </div>
   </header>
+  
+  <!-- Spacer div to prevent content jump when header becomes fixed -->
+  <div :class="{ 'h-[120px] md:h-[100px]': isFixed }"></div>
 </template>
