@@ -5,7 +5,7 @@ const currentYear = new Date().getFullYear();
 </script>
 
 <template>
-  <footer class="py-4 text-gray-700">
+  <footer class="py-4 md:px-8 text-gray-700">
     <div class="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
       <p class="mb-2 md:mb-0 text-center md:text-left">
         &copy; {{ currentYear }} Mohammad Asad Atterkhan
