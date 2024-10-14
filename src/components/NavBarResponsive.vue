@@ -43,7 +43,7 @@ onUnmounted(() => {
 <template>
   <header 
     :class="[
-      'w-full bg-white z-50 transition-all duration-300 px-6 sm:px-8 md:px-16',
+      'w-full bg-white bg-opacity-90 z-50 transition-all duration-300 px-6 sm:px-8 md:px-16',
       { 'fixed top-0 left-0 shadow-md': isFixed },
       { 'relative': !isFixed },
       { 'transform -translate-y-full': !isVisible && isFixed },
