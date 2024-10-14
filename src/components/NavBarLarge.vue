@@ -3,27 +3,12 @@ import { ref, onMounted, onUnmounted } from 'vue';
 import { RouterLink } from 'vue-router';
 
 const isScrolled = ref(false);
-const isVisible = ref(true);
-let lastScrollY = 0;
 
 function handleScroll() {
   const currentScrollY = window.scrollY;
   
   // Determine if header should be fixed
   isScrolled.value = currentScrollY > 50;
-
-  // Determine visibility based on scroll direction, but only when fixed
-  if (isScrolled.value) {
-    if (currentScrollY < lastScrollY) {
-      isVisible.value = true;
-    } else {
-      isVisible.value = false;
-    }
-  } else {
-    isVisible.value = true;
-  }
-  
-  lastScrollY = currentScrollY;
 }
 
 onMounted(() => {
@@ -38,11 +23,8 @@ onUnmounted(() => {
 <template>
   <header 
     :class="[
-      'w-full bg-white bg-opacity-90 z-50 transition-all duration-300 first-line:sm:px-8 md:px-16',
-      { 'fixed top-0 left-0 shadow-md': isScrolled },
-      { 'relative': !isScrolled },
-      { 'transform -translate-y-full': !isVisible && isScrolled },
-      { 'py-2': isScrolled, 'py-4': !isScrolled }
+      'bg-white z-50 transition-all duration-300 px-6 sm:px-8 md:px-16 sticky top-0 left-0 right-0',
+      { 'py-2 bg-opacity-90': isScrolled, 'py-4': !isScrolled }
     ]"
   >
     <div class="flex items-center space-x-4" :class="{ 'mb-4': !isScrolled }">
