@@ -55,11 +55,8 @@ onUnmounted(() => {
         <img 
           src="@/assets/img/PixMeAlone.gif" 
           alt="Pixel Me" 
-          :class="{ 'h-10 w-10': isFixed, 'h-15 w-15': !isFixed }"
+          :class="{ 'h-14 w-14': isFixed, 'h-15 w-15': !isFixed }"
         />
-        <h1 :class="{ 'text-lg font-semibold': isFixed, 'text-xl font-bold': !isFixed }">
-          Mohammad Asad
-        </h1>
       </div>
       
       <!-- Centered Hamburger Icon -->
