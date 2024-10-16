@@ -39,16 +39,21 @@ const markedToRender = computed(() => {
     </div>
 </template>
 
-<style>
+<style scoped>
 .post-content {
-  padding: 20px;
+    padding: 20px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 .output {
-  font-family: 'Arial', sans-serif;
+    width: 100%; 
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 code {
-  color: #f66;
+    color: #f66;
 }
 </style>
