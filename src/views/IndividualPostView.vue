@@ -39,9 +39,8 @@ const markedToRender = computed(() => {
     </div>
 </template>
 
-<style scoped>
+<style>
 .post-content {
-    padding: 20px;
     width: 100%;
     max-width: 100%;
     box-sizing: border-box;
@@ -58,12 +57,32 @@ const markedToRender = computed(() => {
 }
 
 .prose h1 {
-    color: #1a202c;
+    color: #1f1f1f;
     font-weight: 700;
 }
 
 .prose h2 {
-    color: #2d3748;
+    color: #1f1f1f;
+    font-weight: 600;
+}
+
+.prose h3 {
+    color: #1f1f1f;
+    font-weight: 600;
+}
+
+.prose h4 {
+    color: #718096;
+    font-weight: 600;
+}
+
+.prose h5 {
+    color: #718096;
+    font-weight: 600;
+}
+
+.prose h6 {
+    color: #718096;
     font-weight: 600;
 }
 
@@ -78,8 +97,6 @@ const markedToRender = computed(() => {
 }
 
 .prose code {
-    color: #e53e3e;
-    background-color: #f7fafc;
     padding: 2px 4px;
     border-radius: 4px;
 }
@@ -108,9 +125,8 @@ const markedToRender = computed(() => {
 }
 
 .prose pre {
-    background-color: #f7fafc;
     padding: 1em;
-    border-radius: 8px;
+    border-radius: 12px;
     overflow-x: auto;
 }
 
