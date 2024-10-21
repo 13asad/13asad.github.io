@@ -19,6 +19,9 @@ const props = defineProps({
         class="block text-xl font-semibold hover:underline mt-2"
         >{{ post.title }}</router-link
       >
+      <div class="mt-2">
+        <span class="text-gray-500">{{ post.categories.join(', ') }}</span>
+      </div>
     </div>
   </div>
 </template>

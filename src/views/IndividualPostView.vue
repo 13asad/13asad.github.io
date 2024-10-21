@@ -2,10 +2,14 @@
 import { marked } from 'marked'
 import { ref, computed, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
+import posts from '@/data/postData.json'
 
 // Get the route parameters
 const route = useRoute()
 const postId = route.params.id
+
+// Find the post data
+const post = posts.find((p) => p.id === postId)
 
 // Load the Markdown content for the post
 const input = ref('')
@@ -35,11 +39,32 @@ const markedToRender = computed(() => {
 
 <template>
     <div class="post-content prose lg:prose-xl mx-auto">
+        <div class="post-meta">
+            <div>
+                <span class="text-gray-500">
+                    <font-awesome-icon :icon="['fas', 'calendar-days']" />
+                     {{ post.date }}
+                </span>
+            </div>
+            <div>
+                <span v-for="tag in post.tags" :key="tag" class="tag">#{{
+                    tag
+                }}</span>
+            </div>
+            <div>
+                <span
+                    v-for="category in post.categories"
+                    :key="category"
+                    class="category"
+                    >{{ category }}</span
+                >
+            </div>
+        </div>
         <div class="output" v-html="markedToRender"></div>
     </div>
 </template>
 
-<style>
+<style scoped>
 .post-content {
     width: 100%;
     max-width: 100%;
@@ -47,13 +72,43 @@ const markedToRender = computed(() => {
 }
 
 .output {
-    width: 100%; 
+    width: 100%;
     max-width: 100%;
     box-sizing: border-box;
 }
 
 .prose {
     color: #333;
+}
+
+.post-meta {
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.5rem;
+    align-items: left;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.tag {
+    display: inline-block;
+    background-color: #000;
+    color: #fff;
+    padding: 0.2rem 0.5rem;
+    border-radius: 2px;
+    margin-right: 0.5rem;
+    font-size: 0.8rem;
+}
+
+.category {
+    display: inline-block;
+    background-color: #e2e8f0;
+    color: #2d3748;
+    padding: 0.2rem 0.5rem;
+    border-radius: 12px;
+    margin-right: 0.5rem;
+    font-size: 0.8rem;
 }
 
 .prose h1 {
@@ -136,7 +191,8 @@ const markedToRender = computed(() => {
     margin: 1em 0;
 }
 
-.prose th, .prose td {
+.prose th,
+.prose td {
     border: 1px solid #e2e8f0;
     padding: 0.5em 1em;
 }
