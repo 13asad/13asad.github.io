@@ -6,10 +6,10 @@ import SocialLinks from '@/components/SocialLinks.vue'
   <section class="mb-12 bg-blue-50 p-4 rounded-lg">
     <h2 class="text-3xl font-bold mb-4">Hi, I'm Mohammad Asad Atterkhan!👋</h2>
     <p class="mb-4">
-      Currently working as an IT Engineer at <span class="text-blue-700 font-semibold">Tropic Knits</span>.
+      Currently working as an IT Engineer at <span class="text-blue-700 font-semibold">Tropic Knits Group </span>part of<span class="text-blue-700 font-semibold"> CIEL Textile</span>.
     </p>
     <p class="mb-4">
-      Passionate about solving problems and optimizing systems. Enthusiast of technology and innovation.<br>
+      Passionate about solving problems and optimising systems. Enthusiast of technology and innovation.<br>
       Oh and I like Cats! 🐱
     </p>
     <div class="flex items-center space-x-4">
