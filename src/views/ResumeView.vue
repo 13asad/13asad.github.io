@@ -1,7 +1,11 @@
 <script setup>
-import UnderConstruction from '@/components/UnderConstruction.vue';
+import ResumeAbout from '@/components/resume/ResumeAbout.vue'
 </script>
 
 <template>
-  <UnderConstruction />
+  <div class="bg-[#fdfcfb] p-6">
+    <section>
+      <ResumeAbout />
+    </section>
+  </div>
 </template>
