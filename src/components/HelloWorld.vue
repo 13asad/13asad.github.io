@@ -14,7 +14,7 @@ import SocialLinks from '@/components/SocialLinks.vue'
     </p>
     <div class="flex items-center space-x-4">
       <SocialLinks />
-      <a href="/resume.pdf" target="_blank" class="border border-gray-600 text-gray-600 px-2 py-1 rounded hover:border-blue-900 hover:bg-blue-900 hover:text-white transition">
+      <a href="/resume" target="_blank" class="border border-gray-600 text-gray-600 px-2 py-1 rounded hover:border-blue-900 hover:bg-blue-900 hover:text-white transition">
         Resume
       </a>
     </div>
