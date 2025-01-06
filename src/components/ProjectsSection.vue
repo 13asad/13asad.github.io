@@ -33,7 +33,7 @@ const showPreviousProjects = () => {
                 :disabled="activeProjectIndex === 0"
             >
                 <!-- SVG Icon -->
-                                 <svg
+                <svg
                     fill="#000000"
                     height="16"
                     width="16"
@@ -63,8 +63,8 @@ const showPreviousProjects = () => {
                         :key="project.date"
                         :class="[
                             'flex-shrink-0',
-                            isMobile ? 'w-full' : 'w-1/3',
-                            !isMobile && 'px-2'
+                            itemsPerView === 1 ? 'w-full' : 'w-1/3',
+                            itemsPerView !== 1 && 'px-2'
                         ]"
                     >
                         <ProjectsCard :project="project" />
@@ -79,7 +79,7 @@ const showPreviousProjects = () => {
                 "
             >
                 <!-- SVG Icon -->
-                                 <svg
+                <svg
                     fill="#000000"
                     height="16"
                     width="16"
