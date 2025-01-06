@@ -61,8 +61,9 @@ onUnmounted(() => {
       <ul class="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-4">
         <li><RouterLink to="/" class="hover:underline hover:text-red-700">Home</RouterLink></li>
         <li><RouterLink to="/about" class="hover:underline hover:text-red-700">About</RouterLink></li>
-        <li><RouterLink to="/blog" class="hover:underline hover:text-red-700">Blog</RouterLink></li>
         <li><RouterLink to="/projects" class="hover:underline hover:text-red-700">Projects</RouterLink></li>
+        <li><RouterLink to="/blog" class="hover:underline hover:text-red-700">Blog</RouterLink></li>
+        <li><RouterLink to="/resume" class="hover:underline hover:text-red-700">Resume</RouterLink></li>
       </ul>
     </nav>
   </header>

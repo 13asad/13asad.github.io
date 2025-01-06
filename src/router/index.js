@@ -5,6 +5,7 @@ import BlogView from '../views/BlogView.vue'
 import ProjectView from '../views/ProjectView.vue'
 import NotFoundView from '../views/NotFoundView.vue'
 import IndividualPostView from '../views/IndividualPostView.vue'
+import ResumeView from '../views/ResumeView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -33,6 +34,11 @@ const router = createRouter({
       path: '/post/:id',
       name: 'post',
       component: IndividualPostView
+    },
+    {
+      path: '/resume',
+      name: 'resume',
+      component: ResumeView
     },
     {
       path: '/:catchAll(.*)',
