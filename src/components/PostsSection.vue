@@ -8,7 +8,6 @@ const props = defineProps({
         type: Array,
         required: true
     }
-    // Removed itemsPerView prop to manage it internally
 })
 
 // Reactive variable for itemsPerView
@@ -115,6 +114,7 @@ const showPreviousPosts = () => {
                     transform: `translateX(-${activePostIndex * (100 / itemsPerView)}%)`
                 }"
             >
+                <!-- Post Cards; Loop through postData.json -->
                 <div
                     v-for="post in posts"
                     :key="post.date"
