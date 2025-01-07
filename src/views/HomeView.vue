@@ -11,8 +11,8 @@ posts.sort((a, b) => new Date(b.date) - new Date(a.date))
 projects.sort((a, b) => new Date(b.date) - new Date(a.date))
 
 // Get the 6 most recent posts and projects
-const recentPosts = computed(() => posts.slice(0, 6))
-const recentProjects = computed(() => projects.slice(0, 6))
+const recentPosts = computed(() => posts)
+const recentProjects = computed(() => projects)
 
 // Detect if viewport is mobile
 const isMobile = ref(false)
