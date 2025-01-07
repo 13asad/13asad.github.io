@@ -1,6 +1,7 @@
 <script setup>
 import ResumeAbout from '@/components/resume/ResumeAbout.vue'
 import ResumeSkills from '@/components/resume/ResumeSkills.vue'
+import ResumeWorkExp from '@/components/resume/ResumeWorkExp.vue';
 </script>
 
 <template>
@@ -8,6 +9,7 @@ import ResumeSkills from '@/components/resume/ResumeSkills.vue'
     <section>
       <ResumeAbout />
       <ResumeSkills />
+      <ResumeWorkExp />
     </section>
   </div>
 </template>
