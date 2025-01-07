@@ -1,16 +1,7 @@
-<script>
-export default {
-    data() {
-        return {
-            isAboutOpen: true
-        }
-    },
-    methods: {
-        toggleAbout() {
-            this.isAboutOpen = !this.isAboutOpen
-        }
-    }
-}
+<script setup>
+import { ref } from 'vue'
+
+const isAboutOpen = ref(true)
 </script>
 
 <template>
@@ -80,10 +71,10 @@ export default {
     </section>
 
     <!-- About Section -->
-    <section>
+    <section class="mb-4">
         <h3
             class="text-2xl font-bold mb-4 cursor-pointer flex justify-between items-center"
-            @click="toggleAbout"
+            @click="isAboutOpen = !isAboutOpen"
         >
             <span style="color: #444440">About Me</span>
             <span v-if="isAboutOpen">−</span>
