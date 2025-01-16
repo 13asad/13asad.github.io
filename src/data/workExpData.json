@@ -1,0 +1,35 @@
+[
+    {
+        "id": 1,
+        "title": "IT Support Engineer",
+        "company": "Tropic Knits Group",
+        "dateRange": "June 2024 - Present",
+        "responsibilities": [
+            "Responsible for managing and maintaining the IT infrastructure of the company.",
+            "Led three projects at national and international levels.",
+            "Monitored security systems and Office 365.",
+            "Managed Active Directory, Group Policy, user accounts, and Linux systems administration.",
+            "Managed IT infrastructure including networking, telephony systems (PABX), and router setup.",
+            "Oversaw industrial infrastructure such as digital scales, cutting machines, and barcode scanners.",
+            "Repaired hardware, set up PCs, and resolved technical issues.",
+            "Managed the IT ticketing system to ensure prompt issue resolution.",
+            "Reduced department costs by selecting more efficient software solutions.",
+            "Maintained printers (Ricoh, Zebra, HP) and related peripherals.",
+            "Provided on-site and remote support for IT infrastructure."
+        ]
+    },
+    {
+        "id": 2,
+        "title": "Software Trainee",
+        "company": "GammaTech Ltd",
+        "dateRange": "June 2023 - May 2024",
+        "responsibilities": [
+            "Supported research, software development, and project design.",
+            "Provided customer support, addressing multiple inquiries daily.",
+            "SQL scripting for data querying and analysis.",
+            "Conducted data analysis.",
+            "Performed software testing and documented reports.",
+            "Contributed to software development and automation efforts."
+        ]
+    }
+]
