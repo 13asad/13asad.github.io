@@ -1,8 +1,9 @@
 <script setup>
 import { ref } from 'vue'
+import skillsData from '@/data/skillsData.json'
 
 const isSkillsOpen = ref(true)
-const bullet = '•' // Define the bullet symbol here
+const bullet = '•' // Define the bullet symbol
 </script>
 
 <template>
@@ -20,49 +21,13 @@ const bullet = '•' // Define the bullet symbol here
             class="bg-white shadow-md rounded-lg p-6"
         >
             <ul class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 text-gray-600">
-                <li class="flex items-start">
+                <li
+                    v-for="skill in skillsData"
+                    :key="skill.id"
+                    class="flex items-start"
+                >
                     <span class="bullet mr-2">{{ bullet }}</span>
-                    <span>IT System Administration (Linux & Windows, O365 Administration)</span>
-                </li>
-                <li class="flex items-start">
-                    <span class="bullet mr-2">{{ bullet }}</span>
-                    <span>Networking & Security</span>
-                </li>
-                <li class="flex items-start">
-                    <span class="bullet mr-2">{{ bullet }}</span>
-                    <span>Hardware/Software Troubleshooting & Support</span>
-                </li>
-                <li class="flex items-start">
-                    <span class="bullet mr-2">{{ bullet }}</span>
-                    <span>Identity and Access Management (IAM) (AD, Group Policy)</span>
-                </li>
-                <li class="flex items-start">
-                    <span class="bullet mr-2">{{ bullet }}</span>
-                    <span>Programming & Scripting (Python, Bash, Batch)</span>
-                </li>
-                <li class="flex items-start">
-                    <span class="bullet mr-2">{{ bullet }}</span>
-                    <span>Documentation & Process Improvement</span>
-                </li>
-                <li class="flex items-start">
-                    <span class="bullet mr-2">{{ bullet }}</span>
-                    <span>Raspberry Pi</span>
-                </li>
-                <li class="flex items-start">
-                    <span class="bullet mr-2">{{ bullet }}</span>
-                    <span>Git</span>
-                </li>
-                <li class="flex items-start">
-                    <span class="bullet mr-2">{{ bullet }}</span>
-                    <span>Communication</span>
-                </li>
-                <li class="flex items-start">
-                    <span class="bullet mr-2">{{ bullet }}</span>
-                    <span>Team Management</span>
-                </li>
-                <li class="flex items-start">
-                    <span class="bullet mr-2">{{ bullet }}</span>
-                    <span>Project Management</span>
+                    <span>{{ skill.name }}</span>
                 </li>
             </ul>
         </div>
@@ -71,7 +36,7 @@ const bullet = '•' // Define the bullet symbol here
 
 <style scoped>
 .bullet {
-    /* Define the bullet symbol styling here */
+    /* Define the bullet symbol styling  */
     color: #4B5563; /* Tailwind gray-600 */
     font-size: 1rem;
 }

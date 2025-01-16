@@ -1,0 +1,46 @@
+[
+    {
+        "id": 1,
+        "name": "IT System Administration (Linux & Windows, O365 Administration)"
+    },
+    {
+        "id": 2,
+        "name": "Networking & Security"
+    },
+    {
+        "id": 3,
+        "name": "Hardware/Software Troubleshooting & Support"
+    },
+    {
+        "id": 4,
+        "name": "Identity and Access Management (IAM) (AD, Group Policy)"
+    },
+    {
+        "id": 5,
+        "name": "Programming & Scripting (Python, Bash, Batch)"
+    },
+    {
+        "id": 6,
+        "name": "Documentation & Process Improvement"
+    },
+    {
+        "id": 7,
+        "name": "Raspberry Pi"
+    },
+    {
+        "id": 8,
+        "name": "Git"
+    },
+    {
+        "id": 9,
+        "name": "Communication"
+    },
+    {
+        "id": 10,
+        "name": "Team Management"
+    },
+    {
+        "id": 11,
+        "name": "Project Management"
+    }
+]
