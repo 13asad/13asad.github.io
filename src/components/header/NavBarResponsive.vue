@@ -10,6 +10,10 @@ function toggleMenu() {
   menuOpen.value = !menuOpen.value;
 }
 
+function closeMenu() {
+  menuOpen.value = false;
+}
+
 const handleScroll = () => {
   const currentScrollY = window.scrollY;
   
@@ -59,11 +63,21 @@ onUnmounted(() => {
       class="w-full mt-4 md:mt-2"
     >
       <ul class="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-4">
-        <li><RouterLink to="/" class="hover:underline hover:text-red-700">Home</RouterLink></li>
-        <li><RouterLink to="/about" class="hover:underline hover:text-red-700">About</RouterLink></li>
-        <li><RouterLink to="/projects" class="hover:underline hover:text-red-700">Projects</RouterLink></li>
-        <li><RouterLink to="/blog" class="hover:underline hover:text-red-700">Blog</RouterLink></li>
-        <li><RouterLink to="/resume" class="hover:underline hover:text-red-700">Resume</RouterLink></li>
+        <li>
+          <RouterLink to="/" class="hover:underline hover:text-red-700" @click="closeMenu">Home</RouterLink>
+        </li>
+        <li>
+          <RouterLink to="/about" class="hover:underline hover:text-red-700" @click="closeMenu">About</RouterLink>
+        </li>
+        <li>
+          <RouterLink to="/projects" class="hover:underline hover:text-red-700" @click="closeMenu">Projects</RouterLink>
+        </li>
+        <li>
+          <RouterLink to="/blog" class="hover:underline hover:text-red-700" @click="closeMenu">Blog</RouterLink>
+        </li>
+        <li>
+          <RouterLink to="/resume" class="hover:underline hover:text-red-700" @click="closeMenu">Resume</RouterLink>
+        </li>
       </ul>
     </nav>
   </header>
@@ -71,3 +85,9 @@ onUnmounted(() => {
   <!-- Spacer div to prevent content jump when header becomes fixed -->
   <div :class="{ 'h-[120px] md:h-[100px]': isFixed }"></div>
 </template>
+
+<style scoped>
+.cursor-pointer {
+    cursor: pointer;
+}
+</style>
