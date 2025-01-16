@@ -1,7 +1,7 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue';
-import NavBarLarge from './NavBarLarge.vue';
-import NavBarResponsive from './NavBarResponsive.vue';
+import NavBarLarge from '@/components/header/NavBarLarge.vue';
+import NavBarResponsive from '@/components/header/NavBarResponsive.vue';
 
 const isMobile = ref(false);
 
