@@ -1,10 +1,11 @@
 <script setup>
+import SocialLinks from './SocialLinks.vue';
 import workExpData from '@/data/workExpData.json' // Import work experience data
 
 // Define the ID of the current work
 const currentWorkExpId = 1
 
-// Find the current work experience using the defined ID
+// Find the current work place using the defined ID
 const currentExp = workExpData.find(exp => exp.id === currentWorkExpId)
 </script>
 
