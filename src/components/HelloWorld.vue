@@ -1,12 +1,19 @@
 <script setup>
-import SocialLinks from '@/components/SocialLinks.vue'
+import workExpData from '@/data/workExpData.json' // Import work experience data
+
+// Define the ID of the current work
+const currentWorkExpId = 1
+
+// Find the current work experience using the defined ID
+const currentExp = workExpData.find(exp => exp.id === currentWorkExpId)
 </script>
 
 <template>
   <section class="mb-12 bg-blue-50 p-4 rounded-lg">
     <h2 class="text-3xl font-bold mb-4">Hi, I'm Mohammad Asad Atterkhan!👋</h2>
     <p class="mb-4">
-      Currently working as an IT Engineer at <span class="text-blue-700 font-semibold">Tropic Knits Group </span>part of<span class="text-blue-700 font-semibold"> CIEL Textile</span>.
+      Currently working as an <span>{{ currentExp.title }}</span> at 
+      <span class="text-blue-700 font-semibold">{{ currentExp.company }}</span>.
     </p>
     <p class="mb-4">
       Passionate about solving problems and optimising systems. Enthusiast of technology and innovation.<br>
@@ -14,9 +21,15 @@ import SocialLinks from '@/components/SocialLinks.vue'
     </p>
     <div class="flex items-center space-x-4">
       <SocialLinks />
-      <a href="/resume" class="border border-gray-600 text-gray-600 px-2 py-1 rounded hover:border-blue-900 hover:bg-blue-900 hover:text-white transition">
+      <a href="/resume" target="_blank" rel="noopener noreferrer" class="border border-gray-600 text-gray-600 px-2 py-1 rounded hover:border-blue-900 hover:bg-blue-900 hover:text-white transition">
         Resume
       </a>
     </div>
   </section>
 </template>
+
+<style scoped>
+.cursor-pointer {
+    cursor: pointer;
+}
+</style>
