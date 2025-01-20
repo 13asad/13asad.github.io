@@ -7,11 +7,31 @@ import router from './router'
 // Import Font Awesome
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
-import { faCalendarDays, faEllipsis, faEnvelope, faPhone, faMapMarkerAlt, faDownload } from '@fortawesome/free-solid-svg-icons'
+import {
+    faCalendarDays,
+    faEllipsis,
+    faEnvelope,
+    faPhone,
+    faMapMarkerAlt,
+    faDownload,
+    faCode,
+    faExternalLinkAlt
+} from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 // Add icons to the library
-library.add(faGithub, faLinkedin, faEllipsis, faCalendarDays, faEnvelope, faPhone, faMapMarkerAlt, faDownload)
+library.add(
+    faGithub,
+    faLinkedin,
+    faEllipsis,
+    faCalendarDays,
+    faEnvelope,
+    faPhone,
+    faMapMarkerAlt,
+    faDownload,
+    faCode,
+    faExternalLinkAlt
+)
 
 const app = createApp(App)
 

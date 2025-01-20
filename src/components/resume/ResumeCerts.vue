@@ -6,7 +6,7 @@ const isCertsOpen = ref(true)
 </script>
 
 <template>
-    <section>
+    <section class="mb-4">
         <h3
             class="text-2xl font-bold mb-4 cursor-pointer flex justify-between items-center"
             @click="isCertsOpen = !isCertsOpen"
