@@ -24,25 +24,7 @@ const isProjectsOpen = ref(true)
                     class="bg-white shadow-md rounded-lg p-4"
                 >
                     <h4 class="text-lg md:text-xl font-semibold mb-2">
-                        <a
-                            :href="
-                                project.links.find(
-                                    (link) => link.type === 'Live'
-                                )?.url || '#'
-                            "
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="text-blue-600 hover:underline mr-2"
-                            v-if="
-                                project.links.find(
-                                    (link) => link.type === 'Live'
-                                )
-                            "
-                            aria-label="Live Project Link"
-                        >
-                            {{ project.title }}
-                        </a>
-                        <span v-else>{{ project.title }}</span>
+                        {{ project.title }}
                     </h4>
                     <p>{{ project.description }}</p>
 
