@@ -41,13 +41,6 @@ const router = createRouter({
             component: ResumeView
         },
         {
-            path: '/resume.pdf',
-            beforeEnter() {
-                window.open('/resume.pdf', '_blank')
-                return false
-            }
-        },
-        {
             path: '/:catchAll(.*)',
             name: '404',
             component: NotFoundView

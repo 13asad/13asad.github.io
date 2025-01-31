@@ -9,7 +9,7 @@ import ResumeProjects from '@/components/resume/ResumeProjects.vue';
 
 <template>
   <div class="bg-[#fdfcfb] p-6">
-    <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" class="mb-4 p-2 rounded underline flex items-center inline-block">
+    <a href="https://drive.google.com/file/d/1zOHswsF6g-j5tTBCMrsQ2p4YuOekCvEC/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="mb-4 p-2 rounded underline flex items-center inline-block">
       <font-awesome-icon :icon="['fas', 'download']" class="mr-2" />
       Download PDF
     </a>
