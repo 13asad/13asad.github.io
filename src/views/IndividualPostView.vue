@@ -56,11 +56,11 @@ const markedToRender = computed(() => {
             </div>
         </div>
         <div class="output" v-html="markedToRender"></div>
-    </div>
-    <div>
-        <span v-for="tag in post.tags" :key="tag" class="tag"
-            >#{{ tag }}</span
-        >
+        <div>
+            <span v-for="tag in post.tags" :key="tag" class="tag"
+                >#{{ tag }}</span
+            >
+        </div>
     </div>
 </template>
 
