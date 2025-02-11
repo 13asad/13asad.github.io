@@ -43,13 +43,8 @@ const markedToRender = computed(() => {
             <div>
                 <span class="text-gray-500">
                     <font-awesome-icon :icon="['fas', 'calendar-days']" />
-                     {{ post.date }}
+                    {{ post.date }}
                 </span>
-            </div>
-            <div>
-                <span v-for="tag in post.tags" :key="tag" class="tag">#{{
-                    tag
-                }}</span>
             </div>
             <div>
                 <span
@@ -61,6 +56,11 @@ const markedToRender = computed(() => {
             </div>
         </div>
         <div class="output" v-html="markedToRender"></div>
+    </div>
+    <div>
+        <span v-for="tag in post.tags" :key="tag" class="tag"
+            >#{{ tag }}</span
+        >
     </div>
 </template>
 
