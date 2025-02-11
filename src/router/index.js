@@ -1,6 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import AboutView from '../views/AboutView.vue'
 import BlogView from '../views/BlogView.vue'
 import ProjectView from '../views/IndividualProjectView.vue'
 import NotFoundView from '../views/NotFoundView.vue'
@@ -17,8 +16,7 @@ const router = createRouter({
         },
         {
             path: '/about',
-            name: 'about',
-            component: AboutView
+            redirect: '/post/1'
         },
         {
             path: '/blog',

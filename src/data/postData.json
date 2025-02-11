@@ -1,9 +1,9 @@
 [
     {
-        "id": "1",
+        "id": "0",
         "date": "2025-02-11",
         "title": "Hello World",
-        "coverImage": "assets/img/post/1/helloworld.png",
+        "coverImage": "assets/img/post/0/helloworld.png",
         "categories": ["??"],
         "tags": ["init"],
         "lastUpdate": "2025-02-11"
