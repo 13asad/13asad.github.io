@@ -1,8 +1,8 @@
+<!-- ProjectsSection.vue -->
 <script setup>
 import ProjectsCard from '@/components/ProjectsCard.vue'
-import { ref, onMounted, onBeforeUnmount } from 'vue'
+import { ref, onMounted, onBeforeUnmount, computed } from 'vue'
 
-// Props
 const props = defineProps({
     projects: {
         type: Array,
@@ -10,20 +10,16 @@ const props = defineProps({
     }
 })
 
-// Reactive variable for itemsPerView
-const itemsPerView = ref(3)
+const itemsPerView = ref(1) // Start with 1, update on mount
 
 const updateItemsPerView = () => {
     const width = window.innerWidth
     if (width < 640) {
-        // Mobile devices
         itemsPerView.value = 1
     } else if (width >= 640 && width < 1024) {
-        // Tablets
         itemsPerView.value = 2
     } else {
-        // Desktop and larger
-        itemsPerView.value = 3
+        itemsPerView.value = 4 // Desktop: 4 cards
     }
 }
 
@@ -36,20 +32,37 @@ onBeforeUnmount(() => {
     window.removeEventListener('resize', updateItemsPerView)
 })
 
-// Navigation Functions
-const activeProjectIndex = ref(0)
+const activeProjectIndex = ref(0) // Corrected variable name
 
 const showNextProjects = () => {
+    // Corrected variable name and check
     if (activeProjectIndex.value < props.projects.length - itemsPerView.value) {
         activeProjectIndex.value++
     }
 }
 
 const showPreviousProjects = () => {
+    // Corrected variable name and check
     if (activeProjectIndex.value > 0) {
         activeProjectIndex.value--
     }
 }
+
+// Computed property for visible projects (Corrected variable name)
+const visibleProjects = computed(() => {
+    const start = activeProjectIndex.value
+    const end = Math.min(start + itemsPerView.value, props.projects.length)
+    return props.projects.slice(start, end)
+})
+
+// Computed property for card width, *including* gap.
+const cardWidthWithGap = computed(() => {
+    if (itemsPerView.value === 1) {
+        return '100%' // Mobile: full width
+    }
+    const cardWidth = 100 / itemsPerView.value
+    return `calc(${cardWidth}% - ${(16 * (itemsPerView.value - 1)) / itemsPerView.value}px)` // Consider the gap.
+})
 </script>
 
 <template>
@@ -63,7 +76,6 @@ const showPreviousProjects = () => {
                     :disabled="activeProjectIndex === 0"
                     aria-label="Show Previous Projects"
                 >
-                    <!-- Previous SVG Icon -->
                     <svg
                         fill="#000000"
                         height="16"
@@ -83,11 +95,11 @@ const showPreviousProjects = () => {
                     class="px-2 py-1 text-sm md:px-2 md:py-2 md:text-base text-white rounded disabled:opacity-50"
                     @click="showNextProjects"
                     :disabled="
-                        activeProjectIndex === projects.length - itemsPerView
+                        activeProjectIndex.value >=
+                        props.projects.length - itemsPerView.value
                     "
                     aria-label="Show Next Projects"
                 >
-                    <!-- Next SVG Icon -->
                     <svg
                         fill="#000000"
                         height="16"
@@ -111,20 +123,16 @@ const showPreviousProjects = () => {
             style="scroll-snap-type: x mandatory"
         >
             <div
-                class="flex transition-transform duration-300 ease-in-out"
+                class="flex transition-transform duration-300 ease-in-out gap-4"
                 :style="{
-                    transform: `translateX(-${activeProjectIndex * (100 / itemsPerView)}%)`
+                    transform: `translateX(-${activeProjectIndex * (100 / itemsPerView.value)}%)`
                 }"
             >
-                <!-- loop through projectData.json -->
                 <div
-                    v-for="project in projects"
-                    :key="project.date"
-                    :class="[
-                        'flex-shrink-0',
-                        itemsPerView === 1 ? 'w-full' : 'w-72',
-                        itemsPerView !== 1 && 'px-2'
-                    ]"
+                    v-for="(project, index) in visibleProjects"
+                    :key="project.id || index"
+                    class="flex-shrink-0"
+                    :style="{ width: cardWidthWithGap }"
                 >
                     <ProjectsCard :project="project" />
                 </div>

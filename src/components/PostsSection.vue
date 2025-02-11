@@ -1,8 +1,8 @@
+<!-- PostsSection.vue -->
 <script setup>
 import PostCard from '@/components/PostCard.vue'
-import { ref, onMounted, onBeforeUnmount } from 'vue'
+import { ref, onMounted, onBeforeUnmount, computed } from 'vue'
 
-// Props
 const props = defineProps({
     posts: {
         type: Array,
@@ -10,20 +10,16 @@ const props = defineProps({
     }
 })
 
-// Reactive variable for itemsPerView
-const itemsPerView = ref(3)
+const itemsPerView = ref(1) // Start with 1
 
 const updateItemsPerView = () => {
     const width = window.innerWidth
     if (width < 640) {
-        // Mobile devices
         itemsPerView.value = 1
     } else if (width >= 640 && width < 1024) {
-        // Tablets
         itemsPerView.value = 2
     } else {
-        // Desktop and larger
-        itemsPerView.value = 3
+        itemsPerView.value = 4 // Desktop: 4 cards
     }
 }
 
@@ -36,7 +32,6 @@ onBeforeUnmount(() => {
     window.removeEventListener('resize', updateItemsPerView)
 })
 
-// Navigation Functions
 const activePostIndex = ref(0)
 
 const showNextPosts = () => {
@@ -50,6 +45,21 @@ const showPreviousPosts = () => {
         activePostIndex.value--
     }
 }
+
+const visiblePosts = computed(() => {
+    const start = activePostIndex.value
+    const end = Math.min(start + itemsPerView.value, props.posts.length)
+    return props.posts.slice(start, end)
+})
+
+// Computed property for card width, *including* gap.
+const cardWidthWithGap = computed(() => {
+    if (itemsPerView.value === 1) {
+        return '100%' // Mobile: full width
+    }
+    const cardWidth = 100 / itemsPerView.value
+    return `calc(${cardWidth}% - ${(16 * (itemsPerView.value - 1)) / itemsPerView.value}px)` // Consider the gap.
+})
 </script>
 
 <template>
@@ -63,7 +73,6 @@ const showPreviousPosts = () => {
                     :disabled="activePostIndex === 0"
                     aria-label="Show Previous Posts"
                 >
-                    <!-- Previous SVG Icon -->
                     <svg
                         fill="#000000"
                         height="16"
@@ -82,10 +91,12 @@ const showPreviousPosts = () => {
                 <button
                     class="px-2 py-1 text-sm md:px-2 md:py-2 md:text-base text-white rounded disabled:opacity-50"
                     @click="showNextPosts"
-                    :disabled="activePostIndex === posts.length - itemsPerView"
+                    :disabled="
+                        activePostIndex.value >=
+                        props.posts.length - itemsPerView.value
+                    "
                     aria-label="Show Next Posts"
                 >
-                    <!-- Next SVG Icon -->
                     <svg
                         fill="#000000"
                         height="16"
@@ -109,20 +120,16 @@ const showPreviousPosts = () => {
             style="scroll-snap-type: x mandatory"
         >
             <div
-                class="flex transition-transform duration-300 ease-in-out"
+                class="flex gap-4 transition-transform duration-300 ease-in-out"
                 :style="{
-                    transform: `translateX(-${activePostIndex * (100 / itemsPerView)}%)`
+                    transform: `translateX(-${activePostIndex * (100 / itemsPerView.value)}%)`
                 }"
             >
-                <!-- Post Cards; Loop through postData.json -->
                 <div
-                    v-for="post in posts"
-                    :key="post.date"
-                    :class="[
-                        'flex-shrink-0',
-                        itemsPerView === 1 ? 'w-full' : 'w-72',
-                        itemsPerView !== 1 && 'px-2'
-                    ]"
+                    v-for="(post, index) in visiblePosts"
+                    :key="post.id || index"
+                    class="flex-shrink-0"
+                    :style="{ width: cardWidthWithGap }"
                 >
                     <PostCard :post="post" />
                 </div>
