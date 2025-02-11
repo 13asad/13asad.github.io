@@ -32,6 +32,7 @@ onMounted(() => {
     fetchPostContent()
 })
 
+
 const markedToRender = computed(() => {
     return marked(input.value)
 })
@@ -47,20 +48,20 @@ const markedToRender = computed(() => {
                 </span>
             </div>
             <div>
-                <span v-for="tag in project.tags" :key="tag" class="tag">#{{
-                    tag
-                }}</span>
-            </div>
-            <div>
                 <span
-                    v-for="category in project.categories"
-                    :key="category"
-                    class="category"
-                    >{{ category }}</span
+                v-for="category in project.categories"
+                :key="category"
+                class="category"
+                >{{ category }}</span
                 >
             </div>
         </div>
         <div class="output" v-html="markedToRender"></div>
+        <div>
+            <span v-for="tag in project.tags" :key="tag" class="tag">#{{
+                tag
+            }}</span>
+        </div>
     </div>
 </template>
 
