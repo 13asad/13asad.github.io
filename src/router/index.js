@@ -16,7 +16,7 @@ const router = createRouter({
         },
         {
             path: '/about',
-            redirect: '/post/1'
+            redirect: '/post/0'
         },
         {
             path: '/blog',
